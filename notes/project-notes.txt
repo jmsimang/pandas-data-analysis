@@ -1,0 +1,7 @@
+Date: 07-03-2019
+Importing SAS/Stats files using pandas
+-- SAS stands for Statistical Analysis System
+-- Stats stands for "Statistics" + "data"
+-- SAS is mainly used in business analytics and bio-statistics
+-- Stata is mainly used in social sciences research
+-- These are two more important files a Data Scientist needs to work with..

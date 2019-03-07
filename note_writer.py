@@ -3,7 +3,7 @@ import os
 from sys import stdin
 
 dir = './notes'
-rights = 00755
+rights = 0o755
 file = 'project-notes.txt'
 
 def main():
@@ -11,7 +11,7 @@ def main():
     global rights
     global file
     if os.path.isdir(dir):
-        note_writer(file)
+        note_writer(dir + '/' + file)
     else:
         try:
             os.mkdir(dir, rights)
@@ -25,11 +25,11 @@ def note_writer(filename):
     try:
         print('Attempting to open your file...')
         with open(filename, 'a+') as file_handle:
-            print('Success!\nEnter your notes to be added to your notepad:')
-            for line in stdin:
-                if line == '':
-                    break
+            print('Success!\nEnter your notes to be added to your notepad (Ctrl+D to terminate):')
+            line = stdin.readline()
+            while line != '':
                 file_handle.write(line)
+                line = stdin.readline()
     except Exception as e:
         print('an error occured: {}'.format(str(e)))
 

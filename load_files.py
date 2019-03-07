@@ -62,3 +62,11 @@ print(xls_df)
 
 
 # SAS/Stata files
+# SAS files with SAS7BDAT extension
+from sas7bdat import SAS7BDAT
+
+with SAS7BDAT('./data_files/urban_population.sas7bdat') as file:
+    sas_df = file.to_data_frame()
+
+# Stata files with DTA extension
+stata_df = pd.read_stata('./data_files/urban_population.dta')

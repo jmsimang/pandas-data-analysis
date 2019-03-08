@@ -1,4 +1,7 @@
-# Mainly used to write notes on new concepts and findings...
+"""
+Mainly used to write notes on new concepts and findings.
+"""
+
 import os
 from sys import stdin
 
@@ -25,11 +28,13 @@ def note_writer(filename):
     try:
         print('Attempting to open your file...')
         with open(filename, 'a+') as file_handle:
-            print('Success!\nEnter your notes to be added to your notepad (Ctrl+D to terminate):')
+            print('Success!\n')
+            print('Enter notes (Ctrl+D to terminate):')
             line = stdin.readline()
             while line != '':
                 file_handle.write(line)
                 line = stdin.readline()
+            print('File updated!')
     except Exception as e:
         print('an error occured: {}'.format(str(e)))
 

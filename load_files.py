@@ -1,3 +1,8 @@
+# Package imports
+import pandas as pd
+import pickle
+from sas7bdat import SAS7BDAT
+
 """
 Import flat files with NumPy
 """
@@ -8,8 +13,6 @@ Import flat files with Pandas DataFrame and applying iteration and slicing,
 using 'read_csv()':
     nrows=, header=, sep=, comment=, na_values= (as arguments)
 """
-import pandas as pd
-
 def load_csv(filename):
     return pd.read_csv(filename)
 
@@ -21,8 +24,6 @@ Import Excel, MATLAB, SAS, HDF5, Stata, and Pickled files using pandas
 [Pickled - a file that has been converted into bytestream, i.e, Serialized
 """
 # Pickled files
-import pickle
-
 def load_pickle(filename):
     with open(filename, 'rb') as file:
         return pickle.load(file)
@@ -63,7 +64,6 @@ print(xls_df)
 
 # SAS/Stata files
 # SAS files with SAS7BDAT extension
-from sas7bdat import SAS7BDAT
 
 with SAS7BDAT('./data_files/urban_population.sas7bdat') as file:
     sas_df = file.to_data_frame()
